@@ -1,4 +1,4 @@
-package io.github.mazuh;
+package io.github.mazuh.redtube;
 
 /**
  *
