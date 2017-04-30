@@ -33,7 +33,7 @@ public class Client {
             openedConnection = Client.createOpenedHttpConnection();
         
             Client.sendRequest(openedConnection, parameters);
-            Client.readResponse(openedConnection);
+            response = Client.readResponse(openedConnection);
         
         } finally{
             if (openedConnection != null)
