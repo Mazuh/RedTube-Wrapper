@@ -1,6 +1,7 @@
 package io.github.mazuh.redtube.exceptions;
 
-/**
+/** Uncheck MalformedURLException. It should be raised whenever a URL should
+ * be constant, formed only at compiling level.
  *
  * @author mazuh
  */

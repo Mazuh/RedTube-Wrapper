@@ -11,7 +11,8 @@ import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-/**
+/** A HTTP client for simple access RedTube API.
+ * Made to be used by some wrapper.
  *
  * @author mazuh
  */
@@ -21,8 +22,13 @@ public class Client {
     private final static String API_ROOT = "https://api.redtube.com/";
     private final static String DEFAULT_METHOD = "GET";
     
-    
-    
+    /** Assemble a HTTP request, send it and return its response.
+     * It's already configured to access RedTube API only.
+     *
+     * @param parameters    url HTTP params to attach before sending the request
+     * @return              a string of all the retrieved response
+     * @throws IOException  if the sending or receiving couldn't be done.
+     */
     public static String execute(String parameters) throws IOException{
         
         HttpURLConnection openedConnection = null;
