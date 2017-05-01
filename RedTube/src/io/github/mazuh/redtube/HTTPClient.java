@@ -14,11 +14,12 @@ import java.util.HashMap;
  *
  * @author mazuh
  */
-public class Client {
+public class HTTPClient {
     
     
     private final static String ENDPOINT = "https://api.redtube.com/";
     private final static String DEFAULT_METHOD = "GET";
+    
     
     /** Assemble a HTTP request, send it and return its response.
      * It's already configured to access RedTube API only.
@@ -37,7 +38,7 @@ public class Client {
         try{
             
             // configuring requests...
-            url = Client.generateURL(parameters);
+            url = HTTPClient.generateURL(parameters);
             
             openedConnection = (HttpURLConnection) url.openConnection();
             openedConnection.setRequestMethod(DEFAULT_METHOD);
@@ -80,9 +81,16 @@ public class Client {
     }
     
     
+    
+    /** Create an URL using the given query parameters, to access RedTube API.
+     * 
+     * @param parameters
+     * @return the formed URL for RedTube API
+     * @throws MalformedURLException 
+     */
     private static URL generateURL(HashMap parameters) throws MalformedURLException{
         
-        StringBuilder url = new StringBuilder(Client.ENDPOINT).append("?");
+        StringBuilder url = new StringBuilder(HTTPClient.ENDPOINT).append('?');
         
         if (parameters != null){
             parameters.forEach((key, value) -> {

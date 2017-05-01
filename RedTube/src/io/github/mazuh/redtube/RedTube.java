@@ -21,7 +21,7 @@ public class RedTube {
             parameters.put("thumbsize", "all");
             parameters.put("tags[]", "Teen");
             
-            String oe = Client.execute((HashMap) parameters);
+            String oe = HTTPClient.execute((HashMap) parameters);
             System.out.println(oe);
             
         } catch (IOException ex) {
