@@ -1,6 +1,9 @@
 package io.github.mazuh.redtube;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,41 +17,58 @@ import java.util.HashMap;
 public class Client {
     
     
-    //private final static String ENDPOINT = "https://api.redtube.com/";
-    private final static String ENDPOINT = "https://api.redtube.com/?data=redtube.Videos.searchVideos&output=xml&search=hard&tags[]=Teen&thumbsize=all&";
+    private final static String ENDPOINT = "https://api.redtube.com/";
     private final static String DEFAULT_METHOD = "GET";
     
     /** Assemble a HTTP request, send it and return its response.
      * It's already configured to access RedTube API only.
      *
-     * @param parameters    url HTTP params to attach before sending the request
-     *                      (can be null if there isn't any)
+     * @param parameters    url query params to attach before sending the request
      * @return              a string of all the retrieved response
      * @throws IOException  if the sending or receiving couldn't be done.
      */
     public static String execute(HashMap parameters) throws IOException{
         
+        URL url = null;
         HttpURLConnection openedConnection = null;
         String response = "";
         int responseCode;
         
         try{
             
-            URL url = Client.generateURL(parameters);
+            // configuring requests...
+            url = Client.generateURL(parameters);
             
             openedConnection = (HttpURLConnection) url.openConnection();
             openedConnection.setRequestMethod(DEFAULT_METHOD);
             openedConnection.setUseCaches(false);
             openedConnection.setDoOutput(true);
             
-            if ((responseCode = openedConnection.getResponseCode()) == 200)
-                response = openedConnection.getResponseMessage(); // print OK
-            else
+            // sending (and checking its response)...
+            if ((responseCode = openedConnection.getResponseCode()) != 200)
                 throw new IOException("Retrieved HTTP code: " + responseCode + ".");
             
+            // reading...
+            InputStream input = openedConnection.getInputStream();
+        
+            try (BufferedReader bufferReader = new BufferedReader(new InputStreamReader(input))) {
+
+                StringBuilder responseBuffer = new StringBuilder();
+                String line;
+
+                while((line = bufferReader.readLine()) != null){
+                    responseBuffer.append(line);
+                    responseBuffer.append('\r');
+                }
+
+                response = responseBuffer.toString(); // ...done!
+            }
+
         } catch (MalformedURLException e){
-            throw new IOException("Failed to send HTTP request: client 400 error.", e);
+            throw new IOException("Failed to send HTTP request (client 400 error).", e);
         } catch (IOException e){
+            if (url != null)
+                System.err.println("Failed at: " + url.toString());
             throw new IOException("Failed to send HTTP request.", e);
         }finally{
             if (openedConnection != null)
@@ -62,7 +82,7 @@ public class Client {
     
     private static URL generateURL(HashMap parameters) throws MalformedURLException{
         
-        StringBuilder url = new StringBuilder(Client.ENDPOINT);
+        StringBuilder url = new StringBuilder(Client.ENDPOINT).append("?");
         
         if (parameters != null){
             parameters.forEach((key, value) -> {
@@ -71,10 +91,10 @@ public class Client {
         }
         
         try{
-            
             return new URL(url.toString());
             
         } catch (MalformedURLException e){
+            System.err.println("Failed to create URL instance: " + url.toString());
             throw new MalformedURLException("Bad URL while creating request: " + url.toString());
         }
         
