@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
 public class Client {
     
     
-    private final static String API_ROOT = "https://api.redtube.com/";
+    private final static String ROOT_ENDPOINT = "https://api.redtube.com/";
     private final static String DEFAULT_METHOD = "GET";
     
     /** Assemble a HTTP request, send it and return its response.
@@ -33,17 +33,23 @@ public class Client {
         
         HttpURLConnection openedConnection = null;
         String response = "";
-        
+        int responseCode;
+
         try{
             
             openedConnection = Client.createOpenedHttpConnection();
-        
+
             Client.sendRequest(openedConnection, parameters);
-            response = Client.readResponse(openedConnection);
-        
+            
+            if ((responseCode = openedConnection.getResponseCode()) == 200)
+                response = Client.readResponse(openedConnection);
+            else
+                throw new IOException("Retrieved HTTP code: " + responseCode + ".");
+
         } finally{
             if (openedConnection != null)
                 openedConnection.disconnect();
+            
         }
         
         return response;
@@ -56,14 +62,14 @@ public class Client {
 
         try{
             
-            URL url = new URL(Client.API_ROOT);
+            URL url = new URL(Client.ROOT_ENDPOINT);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        
+
             connection.setRequestMethod(Client.DEFAULT_METHOD);
-        
+
             connection.setUseCaches(false);
             connection.setDoOutput(true);
-            
+
             return connection;
         
         } catch(MalformedURLException e){
