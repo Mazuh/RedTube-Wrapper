@@ -6,10 +6,10 @@ there's no porn here, you pervert. It's just Java code (no, not even Python),
 a myriad of classes, exceptions, objects, requests etc.
 
 > Although I strongly recommend you to **step back** if **you're underage**
-> or you have reasons to believe **you're not allowed somehow** to see this project.
+> or you have reasons to believe that **you're not allowed somehow** to see this project.
 
 If you're planning to use this knowledge to create something dirty... well,
-you're naughty programmer, but have fun! Just follow the legal notice here
+you're naughty programmer, but have fun! Just follow the legal notices here
 below, it's very important to respect the companies and developers who worked
 _hard_ on that.
 
@@ -18,12 +18,12 @@ _hard_ on that.
 All this repository is under [LGPL license](./LICENSE), so pay very attention
 to it if you gonna use some of this code.
 
-Before starting this project and making it available here, I had read
+Before starting this project and hosting its code at GitHub, I had read
 [GitHub Terms of Service](https://help.github.com/articles/github-terms-of-service/)
 and contacted them. Apparently, some dirty keywords won't
 hurt anyone, but don't expect GitHub to host pornography, nudity or explicit sexual
 content. All information this wrapper provides is actually provided by RedTube
-itself (that's why this is a wrapper) through Internet, and system have no
+itself (that's why this is a wrapper) through Internet, and this wrapper alone have no
 intention of persist or host the retrieved data.
 
 As an **indie project**, there's no company endorsing it, not even RedTube.
