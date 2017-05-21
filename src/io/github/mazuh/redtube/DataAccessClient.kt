@@ -8,12 +8,12 @@ import java.net.MalformedURLException
 import java.net.URL
 import kotlin.collections.Map
 
-/** A HTTP client for simple access RedTube API.
+/** A HTTP client for simple access to RedTube API.
  * Made to be used by some wrapper.
  *
  * @author mazuh
  */
-class HTTPClient {
+class DataAccessClient {
 
 
     val ENDPOINT: String = "https://api.redtube.com/"
