@@ -1,6 +1,6 @@
 # RedTube Wrapper
 
-Simply a wrapper for the official [RedTube API](https://api.redtube.com/docs/).
+Simply a wrapper for the official [RedTube API (read the docs!)](https://api.redtube.com/docs/).
 May have [NSFW](https://en.wikipedia.org/wiki/Not_safe_for_work) language, but
 there's no porn here, you pervert. It's just Java code (no, not even Python),
 a myriad of classes, exceptions, objects, requests etc.
@@ -16,7 +16,7 @@ _hard_ on that.
 ## Legal notices
 
 All this repository is under [LGPL license](./LICENSE), so pay very attention
-to it if you gonna use some of this code.
+before using this code.
 
 Before starting this project and hosting its code at GitHub, I had read
 [GitHub Terms of Service](https://help.github.com/articles/github-terms-of-service/)
