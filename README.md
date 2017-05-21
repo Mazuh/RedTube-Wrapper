@@ -1,21 +1,22 @@
 # RedTube Wrapper
 
-Simply a wrapper for the official [RedTube API (read the docs!)](https://api.redtube.com/docs/).
-May have [NSFW](https://en.wikipedia.org/wiki/Not_safe_for_work) language, but
-there's no porn here, you pervert. It's just Java code (no, not even Python),
-a myriad of classes, exceptions, objects, requests etc.
+Simply a wrapper for the official [RedTube API](https://api.redtube.com/docs/)
+-- ie, there isn't any kind of user interface here, not even command lines.
+May have [NSFW](https://en.wikipedia.org/wiki/Not_safe_for_work) language, but,
+again, there's no porn here, you pervert. It's just Kotlin code (no, not
+even Python), which is exciting by itself, of course!
 
 > Although I strongly recommend you to **step back** if **you're underage**
 > or you have reasons to believe that **you're not allowed somehow** to see this project.
 
 If you're planning to use this knowledge to create something dirty... well,
-you're naughty programmer, but have fun! Just follow the legal notices here
-below, it's very important to respect the companies and developers who worked
-_hard_ on that.
+you're naughty programmer, but have [fun](https://kotlinlang.org/docs/reference/functions.html)!
+Just follow the legal notices here below, it's very important to respect the companies and developers
+who worked _hard_ on that.
 
 ## Legal notices
 
-All this repository is under [LGPL license](./LICENSE), so pay very attention
+All this repository is under [LGPL license](https://github.com/Mazuh/RedTube-Wrapper/blob/master/LICENSE), so pay very attention
 before using this code.
 
 Before starting this project and hosting its code at GitHub, I had read
