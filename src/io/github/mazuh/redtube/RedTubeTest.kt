@@ -1,11 +1,11 @@
 package io.github.mazuh.redtube
 
 import kotlin.collections.Map
-import io.github.mazuh.redtube.connection.DataAccessClient
+import io.github.mazuh.redtube.connection.HTTPClient
 
 fun main(args: Array<String>) {
     
-    val client = DataAccessClient()
+    val client = HTTPClient()
     
     val parameters = hashMapOf<String, String>(
         "data" to "redtube.Videos.searchVideos",

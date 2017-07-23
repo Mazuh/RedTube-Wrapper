@@ -11,13 +11,13 @@ import kotlin.collections.Map
 /** A HTTP client for simple access to RedTube API. 
  * It wraps read-only operations (since it access only the public API).
  *
- * Don't call this directly: it's recommended to use it through wrapper domain class.
+ * Don't call this directly: it's recommended to use it through a wrapper domain class.
  *
  * WARNING: May be blocked in your network due to NSFW filters (ask the network admin).
  * TODO: allow config properties with some default constant vals from RedTubeTest
  * @author mazuh
  */
-class DataAccessClient {
+class HTTPClient {
 
 
     val ENDPOINT: String = "https://api.redtube.com/"
