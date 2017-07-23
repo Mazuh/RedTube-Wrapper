@@ -1,4 +1,4 @@
-package io.github.mazuh.redtube
+package io.github.mazuh.redtube.resources
 
 import java.net.URL
 

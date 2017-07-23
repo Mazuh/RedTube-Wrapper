@@ -1,4 +1,4 @@
-package io.github.mazuh.redtube
+package io.github.mazuh.redtube.resources
 
 /** Represents a domain class for any RedTube category.
  *

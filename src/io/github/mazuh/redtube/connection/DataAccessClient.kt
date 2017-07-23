@@ -1,4 +1,4 @@
-package io.github.mazuh.redtube
+package io.github.mazuh.redtube.connection
 
 import java.io.BufferedReader
 import java.io.IOException

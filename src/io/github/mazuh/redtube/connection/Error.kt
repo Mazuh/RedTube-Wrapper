@@ -1,4 +1,4 @@
-package io.github.mazuh.redtube
+package io.github.mazuh.redtube.connection
 
 /** Represents all documented RedTube error messages.
  * TODO: will it be turned into exceptions classes?
