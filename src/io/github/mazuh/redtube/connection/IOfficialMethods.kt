@@ -1,5 +1,10 @@
 package io.github.mazuh.redtube.connection
 
+import io.github.mazuh.redtube.resources.Video
+import io.github.mazuh.redtube.resources.Category
+import io.github.mazuh.redtube.resources.Star
+import io.github.mazuh.redtube.resources.Tag
+
 /**
  * Official methods already low level documented by the official RedTube API.
  *
@@ -31,8 +36,9 @@ interface IOfficialMethods {
      *			If set, the returned XML output will deliver videos from a period, based on the
      *			selected value. Possible values are: weekly, monthly, alltime.
      */
-    fun searchVideo(category: String?,page: Int?, search: String?, tags: Array<String>?,
-                    stars: Array<String>?, thumbsize: String?, ordering: String?, period: String?)
+    fun searchVideo(category: String?, page: Int?, search: String?, tags: Array<String>?,
+                    stars: Array<String>?, thumbsize: String?, ordering: String?,
+                    period: String?): Array<Video>
     
     /**
      * Retrieves additional information about a specific video.
@@ -41,7 +47,7 @@ interface IOfficialMethods {
      * @param thumbsize (Optional) If set, provides additional thumbnails in different formats.
      *                  Possible values are medium, small, big, all, medium1, medium2. 
      */
-    fun getVideoById(videoId: Int, thumbsize: String?)
+    fun getVideoById(videoId: Long, thumbsize: String?): Video
     
     /**
      * Retrieves state of a specific video.
@@ -50,21 +56,21 @@ interface IOfficialMethods {
      *
      * @param videoId (Required) Integer
      */
-    fun isVideoActive(videoId: Int)
+    fun isVideoActive(videoId: Long): Boolean
     
     /**
      * Retrieves embed code (BASE64) for a specific video.
      *
      * @param videoId (Required) Integer
      */
-    fun getVideoEmbedCode(videoId: Int)
+    fun getVideoEmbedCode(videoId: Long): String
     
     /**
      * Retrieves all deleted videos list.
      *
      * @param page (Required) Integer
      */
-    fun getDeletedVideos(page: Int)
+    fun getDeletedVideos(page: Int): Array<Video>
     
     
     
@@ -74,21 +80,21 @@ interface IOfficialMethods {
     /**
      * Retrieves all available categories.
      */
-    fun getCategoriesList()
+    fun getCategoriesList(): Array<Category>
     
     /**
      * Retrieves all tags available.
      */
-    fun getTagList()
+    fun getTagList(): Array<Tag>
     
     /**
-     * Retrieves all pornstars available.
+     * Retrieves all pornstars names available.
      */
-    fun getStarList()
+    fun getStarList(): Array<String>
     
     /**
      * Retrieves all pornstars available with details.
      */
-    fun getStarDetailedList()
+    fun getStarDetailedList(): Array<Star>
 
 }
