@@ -7,5 +7,5 @@ package io.github.mazuh.redtube.resources.util
 enum class Period(val param: String) {
     WEEKLY("weekly"),
     MONTHLY("monthly"),
-    ALLTIME("alltime"),
+    ALL_TIME("alltime"),
 }
