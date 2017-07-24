@@ -1,4 +1,4 @@
-package io.github.mazuh.redtube.connection
+package io.github.mazuh.redtube
 
 import io.github.mazuh.redtube.resources.Video
 import io.github.mazuh.redtube.resources.Category
@@ -18,7 +18,7 @@ import io.github.mazuh.redtube.resources.util.Period
  * @author mazuh
  * @see originaldocs https://api.redtube.com/docs/
  */ 
-interface IOfficialMethods {
+interface IOfficialVideoMethods {
     
     
     
@@ -39,7 +39,7 @@ interface IOfficialMethods {
      */
     fun searchVideo(category: Category?, page: Int?, search: String?, tags: Array<Tag>?,
                     stars: Array<Star>?, thumbsize: ThumbSize?, ordering: Ordering?,
-                    period: Period?): Array<Video>
+                    period: Period?): Set<Video>
     
     /**
      * Retrieves additional information about a specific video.
@@ -70,7 +70,7 @@ interface IOfficialMethods {
      *
      * @param page (Required) Integer
      */
-    fun getDeletedVideos(page: Int): Array<Video>
+    fun getDeletedVideos(page: Int): Set<Video>
     
     
     
@@ -80,21 +80,21 @@ interface IOfficialMethods {
     /**
      * Retrieves all available categories.
      */
-    fun getCategoriesList(): Array<Category>
+    fun getCategoriesList(): Set<Category>
     
     /**
      * Retrieves all tags available.
      */
-    fun getTagList(): Array<Tag>
+    fun getTagList(): Set<Tag>
     
     /**
      * Retrieves all pornstars names available.
      */
-    fun getStarList(): Array<String>
+    fun getStarList(): Set<String>
     
     /**
      * Retrieves all pornstars available with details.
      */
-    fun getStarDetailedList(): Array<Star>
+    fun getStarDetailedList(): Set<Star>
 
 }
