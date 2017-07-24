@@ -7,6 +7,6 @@ import io.github.mazuh.redtube.connection.IOfficialMethods
  * 
  * @author mazuh
  */
-class RedTube: IOfficialMethods {
+class RedTube{
     // TODO
 }

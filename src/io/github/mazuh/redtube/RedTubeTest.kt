@@ -2,9 +2,13 @@ package io.github.mazuh.redtube
 
 import kotlin.collections.Map
 import io.github.mazuh.redtube.connection.HTTPClient
+import io.github.mazuh.redtube.connection.Error
 
 fun main(args: Array<String>) {
     
+    println(Error.NO_STARS_FOUND.code)
+    
+    /*
     val client = HTTPClient()
     
     val parameters = hashMapOf<String, String>(
@@ -17,4 +21,5 @@ fun main(args: Array<String>) {
     
     val oe = client.query(parameters);
     println(oe);
+    */
 }

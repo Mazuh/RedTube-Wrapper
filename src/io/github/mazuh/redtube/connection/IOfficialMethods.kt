@@ -4,6 +4,10 @@ import io.github.mazuh.redtube.resources.Video
 import io.github.mazuh.redtube.resources.Category
 import io.github.mazuh.redtube.resources.Star
 import io.github.mazuh.redtube.resources.Tag
+import io.github.mazuh.redtube.resources.util.ThumbSize
+import io.github.mazuh.redtube.resources.util.Ordering
+import io.github.mazuh.redtube.resources.util.Period
+
 
 /**
  * Official methods already low level documented by the official RedTube API.
@@ -11,7 +15,8 @@ import io.github.mazuh.redtube.resources.Tag
  * Therefore, all of these don't actually need a significant local implementation,
  * since they're are available through simple HTTP requests.
  *
- * @see: https://api.redtube.com/docs/
+ * @author mazuh
+ * @see originaldocs https://api.redtube.com/docs/
  */ 
 interface IOfficialMethods {
     
@@ -29,23 +34,18 @@ interface IOfficialMethods {
      * @param tags      (Optional) Array
      * @param stars     (Optional) Array
      * @param thumbsize (Optional) If set, provides additional thumbnails in different formats.
-     *                  Possible values are: medium, small, big, all, medium1, medium2.
-     * @param ordering  (Optional) If set, the returned XML output is ordered according the selected value.
-     *			Possible values are: newest, mostviewed, rating.
-     * @param period    (Optional - works only when 'ordering' parameter is used!)
-     *			If set, the returned XML output will deliver videos from a period, based on the
-     *			selected value. Possible values are: weekly, monthly, alltime.
+     * @param ordering  (Optional) If set, the returned list is ordered according the selected value.
+     * @param period    (Optional - needs 'ordering' param!) If set, the videos will come from a certain period.
      */
-    fun searchVideo(category: String?, page: Int?, search: String?, tags: Array<String>?,
-                    stars: Array<String>?, thumbsize: String?, ordering: String?,
-                    period: String?): Array<Video>
+    fun searchVideo(category: Category?, page: Int?, search: String?, tags: Array<Tag>?,
+                    stars: Array<Star>?, thumbsize: ThumbSize?, ordering: Ordering?,
+                    period: Period?): Array<Video>
     
     /**
      * Retrieves additional information about a specific video.
      *
      * @param videoId   (Required) Integer
      * @param thumbsize (Optional) If set, provides additional thumbnails in different formats.
-     *                  Possible values are medium, small, big, all, medium1, medium2. 
      */
     fun getVideoById(videoId: Long, thumbsize: String?): Video
     
