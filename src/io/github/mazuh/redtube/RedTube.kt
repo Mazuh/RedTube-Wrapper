@@ -15,6 +15,14 @@ import io.github.mazuh.redtube.resources.util.*
 class RedTube: IOfficialVideoMethods, IOfficialAdditionalMethods{
 
     
+    private val httpOutput: String = "json"
+    
+    
+    constructor(){
+        // pass
+    }
+    
+    
     override fun searchVideo(category: Category?, page: Int?, search: String?, tags: Array<Tag>?,
                              stars: Array<Star>?, thumbsize: ThumbSize?, ordering: Ordering?,
                              period: Period?): Set<Video>{
